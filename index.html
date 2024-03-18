@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Cobro Mínimo Basada en Expectativas de Ingresos Netos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Calculadora de Cobro Mínimo Basada en Expectativas de Ingresos Netos</h1>
+    <form id="ingresos-netos" action="javascript:void(0);">
+        <label for="ingresos-mensuales">Expectativa de Ingresos Netos Mensuales</label>
+        <input type="number" id="ingresos-mensuales">
+        
+    </form>
+    <p>Ingresos netos mensuales: <b><span id="ingresos-mensuales-span"></span> €</b></p>
+    <p>Ingreso neto anual: <b><span id="ingreso-anual-span"></span> €</b></p>
+    <label for="costos-iva">Porcentaje de IVA aplicable</label>
+        <select id="costos-iva" required>
+            <option value="4">IVA Superreducido (4%)</option>
+            <option value="10">IVA Reducido (10%)</option>
+            <option value="21" selected>IVA General (21%)</option>
+        </select>
+    <p>Cobro de IVA anual: <b><span id="costos-iva-span"></span> €</b></p>
+    <ul id="costos-IRPF">
+    </ul>
+    <p>Suma de Expectativa de ingreso, IVA e IRPF<b><span id="ingresos-brutos-minimos-span"></span> €</b></p>
+    
+    <form id="dias-horas" action="javascript:void(0);">
+        <p>Días en un año: <b>365</b></p>
+        <label for="dias-semana">Días laborables a la semana:
+            <input type="number" id="dias-semana" min="1" max="7" value="5" required>
+        </label>
+        <p>Días no laborables a la semana: <span id="dias-libres-semana-span"></span></p>
+        <label for="dias-vacaciones">Días de vacaciones al año:
+            <input type="number" id="dias-vacaciones" min="0" max="365" value="30">
+        </label>
+        <p><label for="dias-festivos">Días festivos al año:
+            <input type="number" id="dias-festivos" min="0" max="365" value="8">
+        </label></p>
+        
+        <p>Días laborables al año: <span id="dias-trabajo-span"></span></p>
+
+        <p>Días de descanso al año: <span id="dias-descanso-ano-span"></span></p>
+        <p>Días libres al año: <span id="dias-libres-anio-span"></span></p>
+
+        <p><label for="horas-dia">Horas laborales por día:
+            <input type="number" id="horas-dia" min="1" max="24" placeholder="8" oninput="document.getElementById('horas-semana').value = '';">
+        </label></p>
+       <p><label for="horas-semana">Horas laborales por semana:
+            <input type="number" id="horas-semana" min="1" max="168" placeholder="40" oninput="document.getElementById('horas-dia').value = '';">
+        </label></p> 
+      
+        <p>Horas laborales normales por semana: <span id="horas-semana-span"></span></p>
+        <p>Horas extras por semana: <span id="horas-extras-semana-span"></span></p>
+        
+       
+    </form>
+
+    <script src="script.js"></script>
+</body>
+</html>
